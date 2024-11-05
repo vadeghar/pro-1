@@ -5,3 +5,19 @@
 @media (max-width: 480px) {
   /* styles for mobile */
 }
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+footer a {
+  color: #000; /* Change this color as needed */
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: #007bff; /* Change this hover color as needed */
+}

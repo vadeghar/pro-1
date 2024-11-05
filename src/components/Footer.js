@@ -4,15 +4,23 @@ import React from 'react';
 function Footer() {
   return (
     <footer style={footerStyle}>
-      <p>&copy; 2023 Cosmetic Store</p>
-      <p>Follow us on <a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+      <p>&copy; 2024 Go Girlee</p>
+      <p>
+        Follow us on 
+        <a href="#" aria-label="Instagram" style={{ margin: '0 5px', color: '#FFF' }}>
+          <i className="fab fa-instagram"></i>
+        </a> 
+        | 
+        <a href="#" aria-label="Facebook" style={{ margin: '0 5px', color: '#FFF' }}>
+          <i className="fab fa-facebook"></i>
+        </a>
+      </p>
     </footer>
   );
 }
 
 const footerStyle = {
-  padding: '1rem',
-  backgroundColor: '#333',
+  backgroundColor: '#440025',
   color: '#fff',
   textAlign: 'center',
   position: 'fixed',
