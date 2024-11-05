@@ -1,0 +1,7 @@
+brew install node
+node -v
+v23.1.0
+npm -v
+10.9.0
+npx create-react-app cosmetic-store
+npm start

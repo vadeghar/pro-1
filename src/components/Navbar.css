@@ -1,0 +1,131 @@
+/* src/components/Navbar.css */
+.navbar {
+    background-color: #440025;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative; /* Positioning context for the search container */
+}
+.logo-img {
+    width: 170px; /* Adjust width for your logo */
+    height: auto; /* Maintain aspect ratio */
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-logo {
+    color: #61dafb;
+    font-size: 24px;
+    text-decoration: none;
+    margin-right: auto; /* Pushes search and menu to the right */
+}
+
+.search-container {
+    position: absolute; /* Position it absolutely within the navbar */
+    right: 20px; /* Adjust based on your design */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%) translateX(100%); /* Start from the right */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animation for opacity and transform */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.search-container.show {
+    opacity: 1; /* Fade in */
+    transform: translateY(-50%) translateX(0); /* Move to its original position */
+}
+
+.search-input-full {
+    width: 200px; /* Adjust width as necessary */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white; /* Optional: background for better visibility */
+}
+
+/* Section-1: Logo aligned to the left with left margin */
+.navbar-logo {
+    color: #61dafb;
+    font-size: 24px;
+    text-decoration: none;
+    margin-right: auto; /* Pushes the next items to the right */
+    margin-left: 20px;  /* Add left margin for spacing */
+}
+
+/* Section-2: Menu items aligned to the center */
+.navbar-menu {
+    display: flex;
+    justify-content: center; /* Center align the menu items */
+    align-items: center;
+    width: 100%; /* Ensure it takes full width for centering */
+}
+
+/* Section-3: Icons aligned to the right with right margin */
+.navbar-icons {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center;
+    margin-right: 20px; /* Add right margin for spacing */
+}
+
+/* Styling for menu items */
+.navbar-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+    margin-right: 15px; /* Space between menu items */
+}
+
+.navbar-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .navbar-menu {
+        margin-top: 10px;
+    }
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    position: absolute;
+    background-color: #440025;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid #ccc; /* Set border width and color */
+    margin-top: 170px;
+    z-index: 1000; /* Ensure dropdown appears above other content */
+}
+
+
+.dropdown-item {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
