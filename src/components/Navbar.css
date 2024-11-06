@@ -1,131 +1,302 @@
+/* Importing the Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+.logo-img {
+  width: 170px;
+  /* Adjust width for your logo */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
 /* src/components/Navbar.css */
 .navbar {
-    background-color: #440025;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    position: relative; /* Positioning context for the search container */
-}
-.logo-img {
-    width: 170px; /* Adjust width for your logo */
-    height: auto; /* Maintain aspect ratio */
-}
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar-logo {
-    color: #61dafb;
-    font-size: 24px;
-    text-decoration: none;
-    margin-right: auto; /* Pushes search and menu to the right */
-}
-
-.search-container {
-    position: absolute; /* Position it absolutely within the navbar */
-    right: 20px; /* Adjust based on your design */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%) translateX(100%); /* Start from the right */
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Animation for opacity and transform */
-    z-index: 1000; /* Ensure it appears above other content */
-}
-
-.search-container.show {
-    opacity: 1; /* Fade in */
-    transform: translateY(-50%) translateX(0); /* Move to its original position */
-}
-
-.search-input-full {
-    width: 200px; /* Adjust width as necessary */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white; /* Optional: background for better visibility */
+  font-family: 'Montserrat', sans-serif;
+  background-color: #440025;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  /* Positioning context for the search container */
 }
 
 /* Section-1: Logo aligned to the left with left margin */
 .navbar-logo {
-    color: #61dafb;
-    font-size: 24px;
-    text-decoration: none;
-    margin-right: auto; /* Pushes the next items to the right */
-    margin-left: 20px;  /* Add left margin for spacing */
+  color: #61dafb;
+  font-size: 24px;
+  text-decoration: none;
+  margin-right: auto;
+  /* Pushes the next items to the right */
+  margin-left: 20px;
+  /* Add left margin for spacing */
 }
 
 /* Section-2: Menu items aligned to the center */
 .navbar-menu {
-    display: flex;
-    justify-content: center; /* Center align the menu items */
-    align-items: center;
-    width: 100%; /* Ensure it takes full width for centering */
+  display: flex;
+  gap: 30px;
+  font-weight: 400;
+  justify-content: center;
+  /* Center align the menu items */
+  align-items: center;
+  width: 100%;
+  /* Ensure it takes full width for centering */
+}
+
+
+/* Styling for menu items */
+.navbar-item {
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+  margin-right: 15px;
+  /* Space between menu items */
+}
+
+.navbar-icons .navbar-item {
+  color: #ecf0f1;
+  cursor: pointer;
+}
+
+.navbar-icons .navbar-item:hover {
+  color: #f39c12;  /* Change color on hover */
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 0.9em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+h4 {
+  color: #333;
+}
+
+.navbar .navbar-link:hover {
+  color: #f39c12;
+  /* Change color on hover */
 }
 
 /* Section-3: Icons aligned to the right with right margin */
 .navbar-icons {
-    display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    align-items: center;
-    margin-right: 20px; /* Add right margin for spacing */
-}
-
-/* Styling for menu items */
-.navbar-item {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
-    margin-right: 15px; /* Space between menu items */
-}
-
-.navbar-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-
-.navbar-link {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
+  /* Align items to the right */
+  align-items: center;
+  margin-right: 20px;
+  /* Add right margin for spacing */
 }
 
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .navbar-menu {
-        margin-top: 10px;
-    }
-}
+
+
+
+
+/* .navbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+} */
+
 
 /* Dropdown Menu Styles */
 .dropdown-menu {
-    position: absolute;
-    background-color: #440025;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    border: 1px solid #ccc; /* Set border width and color */
-    margin-top: 170px;
-    z-index: 1000; /* Ensure dropdown appears above other content */
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  /* Set border width and color */
+  margin-top: 170px;
+  z-index: 1000;
+  /* Ensure dropdown appears above other content */
 }
 
 
 .dropdown-item {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
+  display: block;
+  color: #440025;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: transform .2s;
 }
 
 .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  transform: scale(1.09);
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+
+.search-container {
+  position: absolute;
+  /* Position it absolutely within the navbar */
+  right: 20px;
+  /* Adjust based on your design */
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%) translateX(100%);
+  /* Start from the right */
+  opacity: 0;
+  /* Start hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Animation for opacity and transform */
+  z-index: 1000;
+  /* Ensure it appears above other content */
+}
+
+.search-container.show {
+  opacity: 1;
+  /* Fade in */
+  transform: translateY(-50%) translateX(0);
+  /* Move to its original position */
+}
+
+.search-input-full {
+  width: 200px;
+  /* Adjust width as necessary */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  /* Optional: background for better visibility */
+}
+
+
+
+
+
+
+
+/* Navbar.css */
+.face-submenu {
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  width: 95%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #440025;
+  z-index: 1000;
+}
+
+/* Initial hidden state for submenu with opacity 0 and a slight upward offset */
+.eye-submenu {
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  width: 95%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #440025;
+  z-index: 1000;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.eye-submenu-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.submenu-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.submenu-column {
+  width: 25%;
+  padding: 10px;
+}
+
+.submenu-options {
+  display: flex;
+}
+
+.submenu-options-col {
+  flex: 1;
+  margin-right: 15px;
+}
+
+.submenu-option {
+  display: block;
+  padding: 5px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.submenu-option:hover {
+  /* color: #007bff; */
+  font-weight: 600;
+}
+
+.submenu-image-column {
+  text-align: center;
+}
+
+.submenu-image {
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.submenu-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.submenu-link {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.submenu-link:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navbar-menu {
+    margin-top: 10px;
+  }
 }
