@@ -35,13 +35,13 @@
 /* Section-2: Menu items aligned to the center */
 .navbar-menu {
   display: flex;
-  gap: 30px;
+  gap: 10px;
   font-weight: 400;
   justify-content: center;
   /* Center align the menu items */
   align-items: center;
   width: 100%;
-  /* Ensure it takes full width for centering */
+  font-size: small;
 }
 
 
@@ -67,7 +67,7 @@
   text-decoration: none;
   color: #ecf0f1;
   font-size: 0.9em;
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: color 0.3s ease;
@@ -235,7 +235,7 @@ h4 {
 }
 
 .submenu-column {
-  width: 25%;
+  width: 32%;
   padding: 10px;
 }
 

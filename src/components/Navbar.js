@@ -11,10 +11,12 @@ function Navbar() {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isFaceSubmenuOpen, setFaceSubmenuOpen] = useState(false);
   const [isEyeSubmenuOpen, setEyeSubmenuOpen] = useState(false);
+  const [isLipSubmenuOpen, setLipSubmenuOpen] = useState(false);
 
   const dropdownRef = useRef(null);
   const faceSubmenuRef = useRef(null);
   const eyeSubmenuRef = useRef(null);
+  const lipSubmenuRef = useRef(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -28,6 +30,7 @@ function Navbar() {
   const openFaceSubmenu = () => {
     setFaceSubmenuOpen(true);
     closeEyeSubmenu();
+    closeLipSubmenu();
   };
 
   // Close Face submenu on hover leave
@@ -37,11 +40,23 @@ function Navbar() {
   const openEyeSubmenu = () => {
     setEyeSubmenuOpen(true);
     closeFaceSubmenu();
+    closeLipSubmenu()
   };
 
   // Close Eye submenu on hover leave
   const closeEyeSubmenu = () => {
     setEyeSubmenuOpen(false);
+  };
+
+  const openLipSubmenu = () => {
+    setLipSubmenuOpen(true);
+    closeFaceSubmenu();
+    closeEyeSubmenu();
+  };
+
+  // Close Eye submenu on hover leave
+  const closeLipSubmenu = () => {
+    setLipSubmenuOpen(false);
   };
 
   const toggleEyeSubmenu = () => setEyeSubmenuOpen(!isEyeSubmenuOpen);
@@ -59,6 +74,9 @@ function Navbar() {
     if (eyeSubmenuRef.current && !eyeSubmenuRef.current.contains(event.target)) {
       setEyeSubmenuOpen(false);
     }
+    if (lipSubmenuRef.current && !lipSubmenuRef.current.contains(event.target)) {
+      setLipSubmenuOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -69,7 +87,7 @@ function Navbar() {
     };
   }, []);
 
-  const menuItems = ['Face', 'Eye', 'Lips', 'Nail', 'Brushes & Tools', 'New Arrivals', 'Gifting', 'Best Deal', 'Services'];
+  const menuItems = ['Face', 'Eye', 'Lips', ,'Hair', 'Makeup Tools', 'Skin', 'Vanity', 'Lights', 'Services'];
 
   const faceSubmenuItems = {
     heading: "FACE",
@@ -84,20 +102,25 @@ function Navbar() {
     ]
   };
 
+
+
   const eyeSubmenuItems = {
     heading: "EYE",
     options: {
-      col1: ["Kajal", "Eye Liners", "Mascaras", "Eye Palettes + Kits"],
-      col2: ["Eyebrows", "Eyeshadow", "Lashes"]
+      col1: ["Eyelashes", "Tweezer", "Lash Adhesive", "Brow Kit", "Glitter Glue", "EyePrimer", "Eyeshadow"],
+      col2: ["Eye Pencil", "Lenses", "Brow Pomade", "Mascara", "Gel Liner", "Eye Pigments", "Liquid Eyeshadow"],
+      col3: ["EyeLiner", "Brow Pencil", "Sketch Liner", "Brow Gel", "Lash Curler", "Kajal", "Pigment Primer"]
+
+      // col1: ["Kajal", "Eye Liners", "Mascaras", "Eye Palettes + Kits"],
+      // col2: ["Eyebrows", "Eyeshadow", "Lashes"]
     },
     images: [
       { src: face_1, description: "Eye Description 1", link: "/shop1" },
       { src: face_2, description: "Eye Description 2", link: "/shop2" },
-      { src: face_3, description: "Eye Description 3", link: "/shop3" }
     ]
   };
 
-  const lipsSubmenuItems = {
+  const lipSubmenuItems = {
     heading: "LIPS",
     options: {
       col1: ["Lipsticks", "Liquid Lip Colours", "Mini M·A·C", "Lip Glosses", "Lip Liners"],
@@ -128,7 +151,7 @@ function Navbar() {
               <div
                 key={index}
                 className="navbar-item"
-                onMouseEnter={item === 'Face' ? openFaceSubmenu : item === 'Eye' ? openEyeSubmenu : null} // Open on hover for Face and Eye
+                onMouseEnter={item === 'Face' ? openFaceSubmenu : item === 'Eye' ? openEyeSubmenu : item === 'Lips' ? openLipSubmenu : null} // Open on hover for Face and Eye
               >
                 <a href={`#${item.toLowerCase()}`} className="navbar-link">{item}</a>
 
@@ -181,6 +204,11 @@ function Navbar() {
                               <a key={idx} href={`#${option.toLowerCase().replace(/\s/g, '-')}`} className="submenu-option">{option}</a>
                             ))}
                           </div>
+                          <div className="submenu-options-col">
+                            {eyeSubmenuItems.options.col3.map((option, idx) => (
+                              <a key={idx} href={`#${option.toLowerCase().replace(/\s/g, '-')}`} className="submenu-option">{option}</a>
+                            ))}
+                          </div>
                         </div>
                       </div>
 
@@ -198,27 +226,27 @@ function Navbar() {
                 )}
 
                 {/* Display submenu if hovering on Eye */}
-                {item === 'Eye' && isEyeSubmenuOpen && (
-                  <div className={`eye-submenu ${isEyeSubmenuOpen ? 'eye-submenu-visible' : ''}`}
-                  ref={eyeSubmenuRef}>
+                {item === 'Lips' && isLipSubmenuOpen && (
+                  <div className={`eye-submenu ${isLipSubmenuOpen ? 'eye-submenu-visible' : ''}`}
+                  ref={lipSubmenuRef}>
                     <div className="submenu-content">
                       <div className="submenu-column">
-                        <h4>{eyeSubmenuItems.heading}</h4>
+                        <h4>{lipSubmenuItems.heading}</h4>
                         <div className="submenu-options">
                           <div className="submenu-options-col">
-                            {eyeSubmenuItems.options.col1.map((option, idx) => (
+                            {lipSubmenuItems.options.col1.map((option, idx) => (
                               <a key={idx} href={`#${option.toLowerCase().replace(/\s/g, '-')}`} className="submenu-option">{option}</a>
                             ))}
                           </div>
                           <div className="submenu-options-col">
-                            {eyeSubmenuItems.options.col2.map((option, idx) => (
+                            {lipSubmenuItems.options.col2.map((option, idx) => (
                               <a key={idx} href={`#${option.toLowerCase().replace(/\s/g, '-')}`} className="submenu-option">{option}</a>
                             ))}
                           </div>
                         </div>
                       </div>
 
-                      {eyeSubmenuItems.images.map((image, idx) => (
+                      {lipSubmenuItems.images.map((image, idx) => (
                         <div key={idx} className="submenu-column submenu-image-column">
                           <img src={image.src} alt={image.description} className="submenu-image" />
                           <p className="submenu-description">{image.description}</p>
@@ -230,6 +258,7 @@ function Navbar() {
                     </div>
                   </div>
                 )}
+
               </div>
             ))}
           </div>
